@@ -4,29 +4,47 @@
     <meta charset="UTF-8" />
     <title>My Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="/style.css" />-->
+    <link rel="stylesheet" href="./index.css" />
 </head>
 <body>
 
     <!-- Navbar -->
-    <div class="navbar navbar-primary bg-primary navbar-expand-md">
+    <div class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
         <div class="container">
-            <div class="mx-auto"><h1>Movies</h1></div>
+            <button class="btn btn-dark btn-outline-secondary mr-5">movies</button>
+            <button class="btn btn-dark btn-outline-secondary">Add movie</button>
+            <div class="mx-auto" style="color: white;"><h1>Movies</h1></div>
+            <button class="btn btn-dark btn-outline-secondary mr-5">delete movie</button>
+            <button class="btn btn-dark btn-outline-secondary">edit movie</button>
         </div>
-    </div><br>
+    </div><br><br><br><br>
 
-    <div class="container">
+    <div id="container1" class="container-fluid">
         <div class="row">
-            <div class="mx-auto">
+            <div class="col-md-12">
                 <div id="output">loading.....</div>
+            </div>
+        </div>
+    </div><br><br><br><br><br><br><br>
+
+    <!-- container 1 -->
+    <div id="container2" class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+
             </div>
         </div>
     </div><br><br>
 
-    <div class="container">
+    <div id="container3" class="container">
         <div class="row">
             <div class="mx-auto">
-                <form method="post" action="">
+                <h2>Add Movie</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mx-auto">
+                <form class="form-control" method="post" action="">
                     <label for="movie">Movie</label>
                     <input id='movie'><br>
                     <label for="rating">Rating</label>
@@ -35,7 +53,7 @@
                 </form>
             </div>
         </div>
-    </div>
+    </div><br><br><br>
 
     <div class="container">
         <div id="editForm"></div>

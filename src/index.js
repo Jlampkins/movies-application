@@ -14,7 +14,20 @@ getMovies().then((movies) => {
   console.log('Here are all the movies:');
   var output = '';
   movies.forEach(({title, rating, id}) => {
-    output += `<button class="remove" id="${id}">Delete</button>${title} - rating: ${rating}<br>`;
+    output += `
+        <table class="table table-dark table-striped">
+            <tr>
+                <td>delete,edit</td>
+                <td>title</td>
+                <td>rating</td>
+            </tr>
+            <tr>
+                <td><button class="btn btn-secondary remove" id="${id}">Delete</button></td>
+                <td>${title}</td>
+                <td>${rating}</td>
+            </tr>
+        </table>
+        `;
     document.getElementById('output').innerHTML = output;
     for (var i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', remove);
