@@ -24,15 +24,18 @@ sayHello('World');
 //     });
 
 function searchMovie(query) {
+    let movie = ""
   // let search = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query;
   fetch("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query)
       .then(function(response) { //data is the information you are fetching for.
-        console.log(response.json());
-        //   .then(function(movies){
-          // movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
-          //
-          // })
-          // })
+        return response.json()
+          .then(function(movies){
+          movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
+              console.log(poster_path);
+              movie += ("<img" + "src=" + poster_path + " " + "alt=" + 'movies' + ">");
+              document.getElementById("movie-poster").innerHTML = movie
+          })
+          })
         })
       }
 
@@ -42,7 +45,7 @@ function searchMovie(query) {
 
       document.getElementById("search-btn").addEventListener("click", function(e){
         let query = document.getElementById("search").value;
-        document.getElementById("movie-poster").innerHTML("<img src=" + movie.poster_path + " " + "alt=" + 'movies' + ">");
+
         searchMovie(query)
       });
 
