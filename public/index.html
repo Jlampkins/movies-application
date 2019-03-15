@@ -4,41 +4,59 @@
     <meta charset="UTF-8" />
     <title>My Application</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!--<link rel="stylesheet" href="/style.css" />-->
+    <link rel="stylesheet" href="./index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lobster|Play|Teko" rel="stylesheet">
 </head>
 <body>
 
-    <!-- Navbar -->
-    <div class="navbar navbar-primary bg-primary navbar-expand-md">
-        <div class="container">
-            <div class="mx-auto"><h1>Movies</h1></div>
-        </div>
-    </div><br>
+<!-- Navbar -->
+<div id="navbar" class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
+    <div id="navContainer" class="container">
+        <a href="#target"><button class="btn btn-dark btn-outline-secondary mr-5">movies</button></a>
+        <a href="#postFrom"><button href="#postFrom" class="btn btn-dark btn-outline-secondary">Add movie</button></a>
+        <div class="mx-auto"><h1>Movies</h1></div>
+        <a href="#target"><button class="btn btn-dark btn-outline-secondary mr-5">delete movie</button></a>
+        <a href="#target"><button class="btn btn-dark btn-outline-secondary">edit movie</button></a>
+    </div>
+</div><br><br><br><br><br><br><br><br><br>
 
-    <div class="container">
-        <div class="row">
-            <div class="mx-auto">
-                <div id="output">loading.....</div>
-            </div>
-        </div>
-    </div><br><br>
+<!-- container 2 background pic 1-->
+<div id="container2" class="container-fluid">
+</div><div id="target"></div><br><br>
 
-    <div class="container">
+<div  id="container1" class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div id="output">loading.....</div>
+        </div>
+    </div>
+</div><br><br><br><br><br><br><br>
+
+<!-- container 3 background pic 2-->
+<div id="container3" class="container-fluid">
+</div><br><br>
+
+
+    <div id="postFrom" class="container">
         <div class="row">
-            <div class="mx-auto">
-                <form method="post" action="">
-                    <label for="movie">Movie</label>
-                    <input id='movie'><br>
-                    <label for="rating">Rating</label>
-                    <input id='rating'><br>
+            <div class="mx-auto"><br><br><br><br><br><br><br><br>
+                <form class="form-control" method="post" action="">
+                    <div class="form-row">
+                        <label  for="movie">Movie</label>
+                        <input class="form-control" id='movie'><br>
+                        <label for="rating">Rating</label>
+                        <input class="form-control" id='rating'>
+                    </div><br>
                     <button class="btn btn-primary" id="submit" type="submit">Add</button>
                 </form>
             </div>
         </div>
-    </div>
+    </div><br><br>
 
-    <div class="container">
-        <div id="editForm"></div>
+    <div id="editFrom" class="container">
+            <div class="mx-auto">
+                <div id="editForm"></div>
+            </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

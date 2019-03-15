@@ -3,11 +3,6 @@
     {
       "title": "star wars",
       "rating": "5",
-      "id": 1
-    },
-    {
-      "title": "star wars",
-      "rating": "5",
       "id": 2
     },
     {
@@ -21,19 +16,9 @@
       "id": 4
     },
     {
-      "title": "star wars",
-      "rating": "5",
+      "title": "star wars 2",
+      "rating": "54",
       "id": 5
-    },
-    {
-      "title": "test",
-      "rating": "2",
-      "id": 6
-    },
-    {
-      "title": "testing",
-      "rating": "2",
-      "id": 7
     }
   ]
 }
