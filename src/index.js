@@ -4,6 +4,63 @@
 import sayHello from './hello';
 sayHello('World');
 
+
+    let api_key = "d9da3de54d4606f9585acbfd5290ef64"
+    let base_url = "http://api.themoviedb.org/3/";
+    let images_url = "http://image.tmdb.org/t/p/";
+    let url = "https://api.themoviedb.org/3/configuration?api_key=d9da3de54d4606f9585acbfd5290ef64";
+    let timeout = 2000;
+    let query = document.getElementById('movie').value;
+
+
+
+
+// fetch(url)
+//     .then(function(response) { //data is the information you are fetching for.
+//        response.json()
+//           .then(function (object) {
+//         console.log(object.results);
+//       })
+//     });
+
+function searchMovie(query) {
+  // let search = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query;
+  fetch("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query)
+      .then(function(response) { //data is the information you are fetching for.
+        console.log(response.json());
+        //   .then(function(movies){
+          // movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
+          //
+          // })
+          // })
+        })
+      }
+
+
+
+// document.getElementById('submit').addEventListener('click', submit1);
+
+      document.getElementById("search-btn").addEventListener("click", function(e){
+        let query = document.getElementById("search").value;
+        document.getElementById("movie-poster").innerHTML("<img src=" + movie.poster_path + " " + "alt=" + 'movies' + ">");
+        searchMovie(query)
+      });
+
+
+
+      //.json() will return a js object that we can interact with.
+
+    // .then((data) => { //now we can reach the data as an object
+    //   console.log(data);
+    //   return data.filter((event) =>{
+    //     return event.type === "PushEvent";
+    //   })
+    // })
+    // .then((data) => {
+    //   console.log(data);
+    //   return (data[0].created_at);
+    // })
+
 /**
  * require style imports
  */
@@ -77,6 +134,10 @@ function remove(event) {
             headers: { 'Content-Type': 'application/json' }
         })
 }
+
+
+
+
 
 
 

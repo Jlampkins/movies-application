@@ -8,12 +8,12 @@ create form to add new movies that has fields for TITLE and RATING *DONE*
 submit form page to make a POST request to /api/movies with info *DONE
 
 Users Edit
-give option to edit an existing movie
-form pre-populated with selected movies details
+give option to edit an existing movie *DONE*
+form pre-populated with selected movies details *DONE*
 ajax request when form is submitted
 
 Delete Movies
-have delete button for each movie that sends a delete request
+have delete button for each movie that sends a delete request *DONE*
 
 
 BONUS:
