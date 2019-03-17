@@ -23,36 +23,38 @@ let query = document.getElementById('movie').value;
 //       })
 //     });
 
-function searchMovie(query) {
-    let movie = ""
+function searchMovie(movie) {
     // let search = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query;
-    fetch("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query)
+    fetch("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + movie)
         .then(function(response) { //data is the information you are fetching for.
-            return response.json()
+             response.json()
                 .then(function(movies){
+                    console.log(movies);
+                    let html = "";
                     movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
                         console.log(poster_path);
-                        $("#movie-poster").html("<img" + "src=" + poster_path + " " + "alt=" + 'movies' + ">");
-                    })
+                        html+= $("#movie-posters").html("<div><img" + " src=" + "https://image.tmdb.org/t/p/w500" + poster_path + " " + "alt=" + 'movies' + "></div");
+                        console.log(html);
+                    }) // img src="path" alt="movies"
                 })
         })
 }
 
 
 
-document.getElementById('submit').addEventListener('click', submit1);
+
+
 
 document.getElementById("search-btn").addEventListener("click", function(e){
-    let query = document.getElementById("search").value;
-
-    searchMovie(query)
+    let movie = document.getElementById("search").value;
+    searchMovie(movie)
 });
 
 
 
 
 
-
+document.getElementById('submit').addEventListener('click', submit1); // why is this guy here? :(
 
 
 
