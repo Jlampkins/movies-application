@@ -1,62 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Movies</title>
+
+    <!-- Meta Tags -->
     <meta charset="UTF-8" />
-    <title>My Application</title>
+    <meta name="description" content="Movie Project">
+    <meta name="keywords" content="HTML,CSS,JavaScript">
+    <meta name="author" content="Josh, Mike, James">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- bootstrap link -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <!-- css link -->
     <link rel="stylesheet" href="./index.css" />
+
+    <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Play|Teko" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/movies-icon.png" type="image/x-icon">
+
 </head>
 <body>
 
-<!-- Navbar -->
-<div id="navbar" class="navbar fixed-top navbar-dark bg-dark navbar-expand-md">
-    <div id="navContainer" class="container">
-        <a href="#target"><button class="btn btn-dark btn-outline-secondary mr-5">movies</button></a>
-        <a href="#postFrom"><button href="#postFrom" class="btn btn-dark btn-outline-secondary">Add movie</button></a>
-        <div class="mx-auto"><h1>Movies</h1></div>
-        <a href="#target"><button class="btn btn-dark btn-outline-secondary mr-5">delete movie</button></a>
-        <a href="#target"><button class="btn btn-dark btn-outline-secondary">edit movie</button></a>
-    </div>
-</div><br><br><br><br><br><br><br><br><br>
-
-<!-- container 2 background pic 1-->
-<div id="container2" class="container-fluid">
-</div><div id="target"></div><br><br>
-
-<div  id="container1" class="container-fluid">
-    <div class="row">
-        <div class="col-md-12">
-            <div id="output">loading.....</div>
-        </div>
-    </div>
-</div><br><br><br><br><br><br><br>
-
-<!-- container 3 background pic 2-->
-<div id="container3" class="container-fluid">
-</div><br><br>
-
-
-    <div id="postFrom" class="container">
-        <div class="row">
-            <div class="mx-auto"><br><br><br><br><br><br><br><br>
-                <form class="form-control" method="post" action="">
-                    <div class="form-row">
-                        <label  for="movie">Movie</label>
-                        <input class="form-control" id='movie'><br>
-                        <label for="rating">Rating</label>
-                        <input class="form-control" id='rating'>
-                    </div><br>
-                    <button class="btn btn-primary" id="submit" type="submit">Add</button>
-                </form>
+    <!-- Navbar --><br><br>
+    <div id="navContainer" class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mt-10">
+        <div id="innerContainer" class="container">
+            <a class="navbar-brand" href="#"><h1>Movies</h1></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a href="#target"><button class="btn btn-dark btn-outline-secondary mr-3">movies</button></a>
+                    </li>
+                    <li class="nav-item mr-3">
+                        <a href="#postFrom"><button class="btn btn-dark btn-outline-secondary">Add movie</button></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#target"><button class="btn btn-dark btn-outline-secondary mr-3">delete/edit</button></a>
+                    </li>
+                </ul>
             </div>
         </div>
+    </div>
+
+
+    <!-- background 1-->
+    <div id="container2" class="container-fluid">
+    </div><div id="target"></div><br><br>
+
+    <!-- movie Table -->
+    <div  id="container1" class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="output">loading.....</div>
+            </div>
+        </div>
+    </div><br><br><br><br><br><br><br>
+
+    <!-- container 3 pic -->
+    <div id="container3" class="container-fluid">
     </div><br><br>
 
-    <div id="editFrom" class="container">
-            <div class="mx-auto">
-                <div id="editForm"></div>
+    <!-- Post From -->
+    <div id="postFrom" class="container-fluid">
+        <div class="col-md-12"><br><br><br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="mx-auto">
+                    <div class="col-md-12">
+                        <form class="form1" method="post">
+                            <div class="form-row">
+                                <label  class="mx-auto" for="movie">Movie</label>
+                                <input class="form-control" id='movie'>
+                                <label class="mx-auto" for="rating">Rating</label>
+                                <input class="form-control" id='rating'>
+                            </div><br>
+                            <a href="#target"><button class="btn" id="submit" type="submit">Add Movie</button></a>
+                        </form>
+                    </div>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- edit Form -->
+    <div id="editFrom" class="container-fluid">
+        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
