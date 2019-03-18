@@ -24,9 +24,7 @@ input {
 
 /* Classes */
 .table-dark {
-    color: #fff;
     margin: 0;
-    background-color: #212529;
 }
 
 .form1{
@@ -85,10 +83,8 @@ input {
 /* container2 ids */
 #container2 {
     height: 55em;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
     border: 0;
+    padding: 0;
     margin-top: -15em;
 }
 

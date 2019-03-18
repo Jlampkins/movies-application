@@ -19,6 +19,9 @@
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css?family=Lobster|Play|Teko" rel="stylesheet">
 
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/movies-icon.png" type="image/x-icon">
+
 </head>
 <body>
 
@@ -65,24 +68,28 @@
 
     <!-- Post From -->
     <div id="postFrom" class="container-fluid">
-        <div class="row">
-            <div class="mx-auto"><br><br><br><br><br><br><br><br><br>
-                <form class="form1" method="post" action="">
-                    <div class="form-row">
-                        <label  class="mx-auto" for="movie">Movie</label>
-                        <input class="form-control" id='movie'>
-                        <label class="mx-auto" for="rating">Rating</label>
-                        <input class="form-control" id='rating'>
-                    </div><br>
-                    <a href="#target"><button class="btn" id="submit" type="submit">Add Movie</button></a>
-                </form>
+        <div class="col-md-12"><br><br><br><br><br><br><br><br><br>
+            <div class="row">
+                <div class="mx-auto">
+                    <div class="col-md-12">
+                        <form class="form1" method="post">
+                            <div class="form-row">
+                                <label  class="mx-auto" for="movie">Movie</label>
+                                <input class="form-control" id='movie'>
+                                <label class="mx-auto" for="rating">Rating</label>
+                                <input class="form-control" id='rating'>
+                            </div><br>
+                            <a href="#target"><button class="btn" id="submit" type="submit">Add Movie</button></a>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
     <!-- edit Form -->
     <div id="editFrom" class="container-fluid">
-                <div id="editForm"></div>
+        
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

@@ -13,15 +13,14 @@ document.getElementById('submit').addEventListener('click', submit1);
 // get movies
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
-  let output = '';
+  let output = '<table class="table table-dark table-striped">\n' +
+      '            <tr>\n' +
+      '                <td>delete,edit</td>\n' +
+      '                <td>Title:</td>\n' +
+      '                <td>Rating:</td>\n' +
+      '            </tr>\n' ;
   movies.forEach(({title, rating, id}) => {
     output += `
-        <table class="table table-dark table-striped">
-            <tr>
-                <td>delete,edit</td>
-                <td>title</td>
-                <td>rating</td>
-            </tr>
             <tr>
                 <td>
                     <button class="btn btn-dark btn-outline-secondary remove" id="${id}">Delete</button>
@@ -30,7 +29,7 @@ getMovies().then((movies) => {
                 <td>${title}</td>
                 <td>${rating}</td>
             </tr>
-        </table>`;
+        `;
     document.getElementById('output').innerHTML = output;
     for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', remove);
@@ -38,7 +37,7 @@ getMovies().then((movies) => {
     for (let i = 0; i < editButtons.length; i++) {
           editButtons[i].addEventListener('click', populateEditForm);
     }
-  });
+  }); output += '</table>'
 }).catch((error) => {
   alert('Oh no! Something went wrong.\nCheck the console for details.')
   console.log(error);
@@ -101,7 +100,7 @@ function populateEditForm(event) {
                                     '<label for="editRating">' + "Change current rating: " + movies[i].rating + '</label>' +  '<br>' +
                                     '<input class="form-control" id="editRating" placeholder=' + 'rating' + '>' +  '<br>' +
                                     '<input class="form-control" id="editId" type="hidden" value=' + movies[i].id + '>' + '<br>' +
-                                    '<button class="btn " id="editPostSubmit" type="submit">Edit Movie</button>' + '<br><a class="mr-5" href="" id="backToAdd">back to add</a>' +
+                                    '<button class="btn" id="editPostSubmit" type="submit">Edit Movie</button>' + '<br><a class="mr-5" href="" id="backToAdd">back to add</a>' +
                                 '</form>' +
                             '</div>' +
                         '</div>' +
@@ -141,23 +140,23 @@ function backToAdd(e){
 function reloadTheObjects() {
     getMovies().then((movies) => {
         console.log('Here are all the movies:');
-        let output = '';
+        let output = '<table class="table table-dark table-striped">\n' +
+            '            <tr>\n' +
+            '                <td>delete,edit</td>\n' +
+            '                <td>Title:</td>\n' +
+            '                <td>Rating:</td>\n' +
+            '            </tr>\n' ;
         movies.forEach(({title, rating, id}) => {
-            output += `<table class="table table-dark table-striped">
-                <tr>
-                <td>delete,edit</td>
-            <td>title</td>
-            <td>rating</td>
-            </tr>
+            output += `
             <tr>
-            <td>
-            <button class="btn btn-dark btn-outline-secondary remove" id="${id}">Delete</button>
-                <a class="edit" href="#editFrom"><button class="btn btn-dark btn-outline-secondary edit" id="${id}">Edit</button></a>
-            </td>
-            <td>${title}</td>
-            <td>${rating}</td>
+                <td>
+                    <button class="btn btn-dark btn-outline-secondary remove" id="${id}">Delete</button>
+                    <a class="edit" href="#editFrom"><button class="btn btn-dark btn-outline-secondary edit" id="${id}">Edit</button></a>
+                </td>
+                <td>${title}</td>
+                <td>${rating}</td>
             </tr>
-            </table>`;
+        `;
             document.getElementById('output').innerHTML = output;
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].addEventListener('click', remove);
@@ -165,7 +164,7 @@ function reloadTheObjects() {
             for (let i = 0; i < editButtons.length; i++) {
                 editButtons[i].addEventListener('click', populateEditForm);
             }
-        });
+        }); output += '</table>'
     }).catch((error) => {
         alert('Oh no! Something went wrong.\nCheck the console for details.')
         console.log(error);
@@ -188,6 +187,10 @@ function editMovieObjects(e) {
         title: movie,
         rating: rating
     };
+
+    document.getElementById('editMovie').value = '';
+    document.getElementById('editRating').value = '';
+
     fetch('http://localhost:3000/movies/' + id, {
         method: 'PUT',
         body: JSON.stringify(data),
