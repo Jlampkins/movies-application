@@ -4,6 +4,46 @@ sayHello('World');
 
 (function () {
 "use strict";
+
+
+    function searchMovie(movie) {
+        let html ='';
+        // let search = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query;
+        fetch("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + movie)
+            .then(function(response) { //data is the information you are fetching for.
+                response.json()
+                    .then(function(movies){
+                        console.log(movies);
+
+
+                        movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
+                            //     let postImage = poster_path;
+                            //     for(let i = 0; i<= 19; i++) {
+                            console.log(poster_path);
+                            html += ("<div><img" + " src=" + "https://image.tmdb.org/t/p/w500" + poster_path + " " + "alt=" + 'movies' + "></div>");
+                            // }
+                            console.log(html);
+                        }) // img src="path" alt="movies"
+                        $("#movie-posters").html(html)
+                        // $("#movie-posters").html += html;
+                    })
+            })
+    }
+
+
+
+
+    $("#search-btn").off().on("click", function(){
+        let movie = $("#search").val();
+        searchMovie(movie)
+    });
+
+
+
+
+
+
+
 // globals
 const {getMovies} = require('./api.js');
 let buttons = document.getElementsByClassName('remove');
