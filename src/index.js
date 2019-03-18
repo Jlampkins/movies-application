@@ -1,19 +1,19 @@
-/**
- * es6 modules and imports
- */
+//imports
 import sayHello from './hello';
 sayHello('World');
 
-/**
- * require style imports
- */
+(function () {
+"use strict";
+// globals
 const {getMovies} = require('./api.js');
 let buttons = document.getElementsByClassName('remove');
 let editButtons = document.getElementsByClassName('edit');
+document.getElementById('submit').addEventListener('click', submit1);
 
+// get movies
 getMovies().then((movies) => {
   console.log('Here are all the movies:');
-  var output = '';
+  let output = '';
   movies.forEach(({title, rating, id}) => {
     output += `
         <table class="table table-dark table-striped">
@@ -32,10 +32,10 @@ getMovies().then((movies) => {
             </tr>
         </table>`;
     document.getElementById('output').innerHTML = output;
-    for (var i = 0; i < buttons.length; i++) {
+    for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', remove);
     }
-    for (var i = 0; i < editButtons.length; i++) {
+    for (let i = 0; i < editButtons.length; i++) {
           editButtons[i].addEventListener('click', populateEditForm);
     }
   });
@@ -44,8 +44,7 @@ getMovies().then((movies) => {
   console.log(error);
 });
 
- document.getElementById('submit').addEventListener('click', submit1);
-
+ // submit a movie
  function submit1(e) {
    e.preventDefault();
    let movie = document.getElementById('movie').value;
@@ -55,6 +54,8 @@ getMovies().then((movies) => {
      title: movie,
      rating: rating
    };
+     document.getElementById('movie').value = '';
+     document.getElementById('rating').value = '';
    fetch('http://localhost:3000/movies', {
      method: 'POST',
      headers: {
@@ -72,18 +73,7 @@ getMovies().then((movies) => {
      setTimeout(reloadTheObjects, 500);
  }
 
- // function reloaded() {
- //   fetch('http://localhost:3000/movies').then((response) => {
- //     let data = response.json().then((data) => {
- //       let output = '';
- //       for(let i = 0; i < data.length; i++) {
- //         output += data[i].title + ' ' + data[i].rating + '<br>';
- //       }
- //       document.getElementById('output').innerHTML = output;
- //     })
- //   })
- // }
-
+// delete a movie
 function remove(event) {
     fetch('http://localhost:3000/movies/' + event.target.id, {
             method: 'DELETE',
@@ -93,50 +83,86 @@ function remove(event) {
     setTimeout(reloadTheObjects, 500);
 }
 
-
+//re-populate Edit Form
 function populateEditForm(event) {
     console.log(event.target);
-    let html = '';
     getMovies().then((movies) => {
         console.log(movies);
-        var output = '';
         document.getElementById('postFrom').innerHTML = output;
         for (let i = 0; i < movies.length; i++) {
             if (event.target.id == movies[i].id)
                 document.getElementById('postFrom').innerHTML ='<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' + '<br>' +
-                    '<div class="container">' +
+                    '<div id="editFrom2">' +
                         '<div class="row">' +
                             '<div class="mx-auto">' +
-                                '<form class="form-control">' +
+                                '<form class="">' +
                                     '<label for="editMovie">' + 'Change title for: ' + movies[i].title + '</label>' +  '<br>' +
                                     '<input class="form-control" id="editMovie" placeholder=' + 'title' + '>' + '<br>' +
                                     '<label for="editRating">' + "Change current rating: " + movies[i].rating + '</label>' +  '<br>' +
                                     '<input class="form-control" id="editRating" placeholder=' + 'rating' + '>' +  '<br>' +
                                     '<input class="form-control" id="editId" type="hidden" value=' + movies[i].id + '>' + '<br>' +
-                                    '<input class="form-control" id="editPostSubmit" type="submit">' +
+                                    '<button class="btn " id="editPostSubmit" type="submit">Edit Movie</button>' + '<br><a class="mr-5" href="" id="backToAdd">back to add</a>' +
                                 '</form>' +
                             '</div>' +
                         '</div>' +
                     '</div>'
         }
         document.getElementById("editPostSubmit").addEventListener('click', editMovieObjects);
-
-
+        document.getElementById('backToAdd').addEventListener('click', backToAdd);
     })
 }
 
 
+
+//function back to add movie form
+function backToAdd(e){
+    e.preventDefault();
+     let output = '';
+     let post = document.getElementById('postFrom');
+
+     output = `<div class="row">
+            <div class="mx-auto"><br><br><br><br><br><br><br><br><br>
+                <form class="form1" method="post" action="">
+                    <div class="form-row">
+                        <label  class="mx-auto" for="movie">Movie</label>
+                        <input class="form-control" id='movie'>
+                        <label class="mx-auto" for="rating">Rating</label>
+                        <input class="form-control" id='rating'>
+                    </div><br>
+                    <a href="#target"><button class="btn" id="submit" type="submit">Add Movie</button></a>
+                </form>
+            </div>
+        </div>`;
+
+        post.innerHTML = output;
+}
+
+// reload function
 function reloadTheObjects() {
     getMovies().then((movies) => {
         console.log('Here are all the movies:');
-        var output = '';
+        let output = '';
         movies.forEach(({title, rating, id}) => {
-            output += `<button class="edit" id="${id}">Edit</button><button class="remove" id="${id}">Delete</button>${title} - rating: ${rating}<br>`;
+            output += `<table class="table table-dark table-striped">
+                <tr>
+                <td>delete,edit</td>
+            <td>title</td>
+            <td>rating</td>
+            </tr>
+            <tr>
+            <td>
+            <button class="btn btn-dark btn-outline-secondary remove" id="${id}">Delete</button>
+                <a class="edit" href="#editFrom"><button class="btn btn-dark btn-outline-secondary edit" id="${id}">Edit</button></a>
+            </td>
+            <td>${title}</td>
+            <td>${rating}</td>
+            </tr>
+            </table>`;
             document.getElementById('output').innerHTML = output;
-            for (var i = 0; i < buttons.length; i++) {
+            for (let i = 0; i < buttons.length; i++) {
                 buttons[i].addEventListener('click', remove);
             }
-            for (var i = 0; i < editButtons.length; i++) {
+            for (let i = 0; i < editButtons.length; i++) {
                 editButtons[i].addEventListener('click', populateEditForm);
             }
         });
@@ -146,6 +172,7 @@ function reloadTheObjects() {
     });
 }
 
+// edit function
 function editMovieObjects(e) {
     console.log(e);
     e.preventDefault();
@@ -170,3 +197,4 @@ function editMovieObjects(e) {
     setTimeout(reloadTheObjects, 500);
 }
 
+})();

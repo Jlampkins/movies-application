@@ -1,19 +1,40 @@
+/* element tags */
 body{
     margin: 0;
     padding: 0;
+    background-image: url("img/movies2.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-attachment: fixed;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
+label{
+    font-family: 'Teko', sans-serif;
+    font-size: 3em;
+    color: red;
+}
+
+input {
+    color: transparent;
+}
+
+/* Classes */
 .table-dark {
     color: #fff;
     margin: 0;
     background-color: #212529;
 }
 
-#navbar{
+.form1{
+    background-color: transparent;
+}
+
+/* Navbar ids */
+#navContainer{
     margin-top: 30px;
     opacity: .8;
 }
@@ -42,6 +63,7 @@ html {
     text-decoration: none;
 }
 
+/* container1 ids */
 #container1 td {
     font-size: 1.3em;
 }
@@ -60,10 +82,9 @@ html {
     color: black;
 }
 
+/* container2 ids */
 #container2 {
-    height: 47em;
-    background-color: green;
-    background-image: url("img/movies.jpg");
+    height: 55em;
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -71,10 +92,11 @@ html {
     margin-top: -15em;
 }
 
+/* container3 ids */
 #container3 {
     height: 40em;
     background-color: green;
-    background-image: url("img/curtain.jpg");
+    background-image: url("img/place.jpeg");
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -82,7 +104,25 @@ html {
     margin-top: -7em;
 }
 
+/* Post form */
 #postFrom{
-    height: 38em;
+    height: 45em;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: -5em;
+    background-image: url("img/flim.jpeg");
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
+#postFrom button{
+    background-color: black;
+    color:red;
+}
+
+#postFrom button:hover{
+    background-color: red;
+    color:black;
+}
