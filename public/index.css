@@ -18,9 +18,38 @@ label{
     color: red;
 }
 
-input {
-    color: transparent;
+/*input {*/
+    /*color: transparent;*/
+/*}*/
+
+
+
+
+.poster{
+    display: inline;
+    margin-left: 5%;
 }
+
+.loading-img{
+    margin-left: 40%;
+}
+
+.loading{
+    margin-left: 45%;
+}
+
+.movie-search{
+    margin-left: 40%;
+    padding-bottom: 4em;
+    padding-top: 4em;
+}
+
+
+
+
+
+
+
 
 /* Classes */
 .table-dark {

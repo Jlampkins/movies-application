@@ -5,6 +5,7 @@ sayHello('World');
 (function () {
 "use strict";
 
+    let api_key = "d9da3de54d4606f9585acbfd5290ef64"
 
     function searchMovie(movie) {
         let html ='';
@@ -17,10 +18,15 @@ sayHello('World');
 
 
                         movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
+                            let movieURL = "https://image.tmdb.org/t/p/w185" + poster_path;
+                            if(poster_path === null){
+                                movieURL = "img/unavailable.png"
+
+                            }
                             //     let postImage = poster_path;
                             //     for(let i = 0; i<= 19; i++) {
                             console.log(poster_path);
-                            html += ("<div><img" + " src=" + "https://image.tmdb.org/t/p/w500" + poster_path + " " + "alt=" + 'movies' + "></div>");
+                            html += ("<div class='poster'><a href='#'><img src=" + movieURL + " " + "alt=" + 'movies' + "></a></div>");
                             // }
                             console.log(html);
                         }) // img src="path" alt="movies"
@@ -30,12 +36,25 @@ sayHello('World');
             })
     }
 
-
-
-
     $("#search-btn").off().on("click", function(){
         let movie = $("#search").val();
         searchMovie(movie)
+    });
+
+
+
+
+    $(document).ready(function() {
+        $("form, #ratingForm").submit(function(e)
+        {
+            e.preventDefault(); // prevent the default click action from being performed
+            if ($("#ratingForm :radio:checked").length == 0) {
+                $('#status').html("nothing checked");
+                return false;
+            } else {
+                $('#status').html( 'You picked ' + $('input:radio[name=rating]:checked').val() );
+            }
+        });
     });
 
 

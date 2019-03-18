@@ -48,21 +48,36 @@
         </div>
     </div>
 
-    <textarea type="text" placeholder="hello" id="search"></textarea>
+
+    <!--<div id="status"></div>-->
+    <!--<form id="ratingForm">-->
+        <!--<fieldset class="rating">-->
+            <!--<legend>Please rate:</legend>-->
+            <!--<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
+            <!--<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
+            <!--<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
+            <!--<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
+            <!--<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
+        <!--</fieldset>-->
+        <!--<div class="clearfix"></div>-->
+        <!--<button class="submit clearfix">Submit</button>-->
+    <!--</form>-->
+
+<form class="movie-search">
+    <input type="text" placeholder="Search for a movie..." id="search">
     <button id="search-btn">Search</button>
-
-    <div class="movie-posters"></div>
-
+</form>
+    <div id="movie-posters"></div>
 
     <!-- background 1-->
-    <div id="container2" class="container-fluid">
-    </div><div id="target"></div><br><br>
+    <!--<div id="container2" class="container-fluid">-->
+    <!--</div><div id="target"></div><br><br>-->
 
     <!-- movie Table -->
     <div  id="container1" class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div id="output">loading.....</div>
+                <div id="output"><img class="loading-img" src="./img/letslobby.gif"><br><strong class="loading">LOADING</strong></div>
             </div>
         </div>
     </div><br><br><br><br><br><br><br>
@@ -81,7 +96,15 @@
                             <div class="form-row">
                                 <label  class="mx-auto" for="movie">Movie</label>
                                 <input class="form-control" id='movie'>
-                                <label class="mx-auto" for="rating">Rating</label>
+                                <!--<fieldset class="rating">-->
+                                    <!--<legend>Please rate:</legend>-->
+                                    <!--<input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="Rocks!">5 stars</label>-->
+                                    <!--<input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="Pretty good">4 stars</label>-->
+                                    <!--<input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="Meh">3 stars</label>-->
+                                    <!--<input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="Kinda bad">2 stars</label>-->
+                                    <!--<input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="Sucks big time">1 star</label>-->
+                                <!--</fieldset>-->
+                                <label  class="mx-auto" for="movie">Rating</label>
                                 <input class="form-control" id='rating'>
                             </div><br>
                             <a href="#target"><button class="btn" id="submit" type="submit">Add Movie</button></a>
@@ -94,13 +117,13 @@
 
     <!-- edit Form -->
     <div id="editFrom" class="container-fluid">
-        
+
     </div>
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="./main.js"></script>
-    <script src="./src/keys.js"></script>
+    <!--<script src="./src/keys.js"></script>-->
 </body>
 </html>

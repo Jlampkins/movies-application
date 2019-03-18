@@ -1,12 +1,21 @@
-html, body {
-    height: 100%;
-}
+/*html, body {*/
+    /*height: 100%;*/
+/*}*/
 
-.container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
-}
+/*.container {*/
+    /*position: relative;*/
+    /*top: 50%;*/
+    /*transform: translateY(-100%);*/
+    /*text-align: center;*/
+/*}*/
 
 
+/*.poster{*/
+    /*display: inline;*/
+    /*float: left;*/
+    /*width: 25%;*/
+/*}*/
+
+/*#movie-posters{*/
+    /*width: 100%;*/
+/*}*/

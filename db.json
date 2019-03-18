@@ -3,22 +3,7 @@
     {
       "title": "star wars",
       "rating": "5",
-      "id": 2
-    },
-    {
-      "title": "star wars",
-      "rating": "5",
-      "id": 3
-    },
-    {
-      "title": "star wars",
-      "rating": "5",
       "id": 4
-    },
-    {
-      "title": "sharknado",
-      "rating": "9000+",
-      "id": 5
     },
     {
       "title": "The Matrix",
@@ -29,11 +14,6 @@
       "title": "The Terminator",
       "rating": "4",
       "id": 7
-    },
-    {
-      "title": "Blow",
-      "rating": "5",
-      "id": 8
     }
   ]
 }
