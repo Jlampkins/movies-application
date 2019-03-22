@@ -4,11 +4,52 @@ sayHello('World');
 
 (function () {
 "use strict";
+
+    let api_key = "d9da3de54d4606f9585acbfd5290ef64";
+
+    function searchMovie(movie) {
+        let html ='';
+        // let search = "https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + query;
+        fetch("https://api.themoviedb.org/3/search/movie?api_key=" + api_key + "&query=" + movie)
+            .then(function(response){ //data is the information you are fetching for.
+                response.json()
+                    .then(function(movies){
+                        console.log(movies);
+                        movies.results.forEach(function({title, vote_average, backdrop_path, poster_path, release_date, overview}) {
+                            let movieURL = "https://image.tmdb.org/t/p/w185" + poster_path;
+                            if(poster_path === null){
+                                movieURL = "img/unavailable.png"
+                            }
+                            console.log(poster_path);
+                            html += ("<div class='poster'><a href='#'><img src=" + movieURL + " " + "alt=" + 'movies' + "></a></div>");
+                            // console.log(html);
+                        });
+                        $("#movie-posters").html(html)
+                        // document.getElementById("movie-posters").innerHTML = html;
+                    })
+            })
+    }
+
+    // document.getElementById("search-btn").addEventListener("click", function(){
+    //     let movie = document.getElementById("search").value;
+    //     searchMovie(movie);
+    // });
+
+    $("#search-btn").off().on("click", function(e){
+        e.preventDefault();
+        let movie = $("#search").val();
+        searchMovie(movie)
+    });
+
+
 // globals
 const {getMovies} = require('./api.js');
 let buttons = document.getElementsByClassName('remove');
+// let buttons = $(".remove");
 let editButtons = document.getElementsByClassName('edit');
-document.getElementById('submit').addEventListener('click', submit1);
+// let editButtons = $(".edit");
+// document.getElementById('submit').addEventListener('click', submit1);
+$("#submit").on("click", submit1);
 
 // get movies
 getMovies().then((movies) => {
@@ -30,16 +71,21 @@ getMovies().then((movies) => {
                 <td>${rating}</td>
             </tr>
         `;
-    document.getElementById('output').innerHTML = output;
-    for (let i = 0; i < buttons.length; i++) {
+    // document.getElementById('output').innerHTML = output;
+    $("#output").html(output);
+      for (let i = 0; i < buttons.length; i++) {
       buttons[i].addEventListener('click', remove);
-    }
+      // buttons[i].on("click",remove);
+      //     console.log(buttons[i].on("click", remove));
+
+      }
     for (let i = 0; i < editButtons.length; i++) {
           editButtons[i].addEventListener('click', populateEditForm);
+          // editButtons[i].on("click", populateEditForm);
     }
   }); output += '</table>'
 }).catch((error) => {
-  alert('Oh no! Something went wrong.\nCheck the console for details.')
+  alert('Oh no! Something went wrong.\nCheck the console for details.');
   console.log(error);
 });
 
@@ -48,7 +94,6 @@ getMovies().then((movies) => {
    e.preventDefault();
    let movie = document.getElementById('movie').value;
    let rating = document.getElementById('rating').value;
-
    let data = {
      title: movie,
      rating: rating
@@ -158,8 +203,10 @@ function reloadTheObjects() {
             </tr>
         `;
             document.getElementById('output').innerHTML = output;
+            // $("#output").html(output);
             for (let i = 0; i < buttons.length; i++) {
                 buttons[i].addEventListener('click', remove);
+                // buttons[i].on("click",remove)
             }
             for (let i = 0; i < editButtons.length; i++) {
                 editButtons[i].addEventListener('click', populateEditForm);
